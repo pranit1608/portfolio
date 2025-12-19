@@ -1,49 +1,110 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6f9;
-  color: #333;
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0a0f1e, #050814);
+  color: #e6ecff;
+  overflow-x: hidden;
 }
 
-.hero {
-  background: #0176d3;
-  color: white;
-  padding: 50px;
-  text-align: center;
+/* PARTICLES */
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
 }
+
+/* CLOUDS */
+.cloud {
+  position: fixed;
+  width: 320px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(77,184,255,0.3), transparent 70%);
+  filter: blur(45px);
+  opacity: 0.7;
+  z-index: -2;
+  animation: cloudMove linear infinite;
+}
+
+.cloud1 { top: 20%; left: -30%; animation-duration: 30s; }
+.cloud2 { top: 50%; left: -40%; animation-duration: 40s; }
+.cloud3 { top: 75%; left: -35%; animation-duration: 50s; }
+
+@keyframes cloudMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(160vw); }
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  text-align: center;
+  padding-top: 120px;
+  background: linear-gradient(135deg, #020617, #050a1f);
+}
+
+.hero h1 { font-size: 3.6rem; }
+.hero h2 { color: #8fbfff; font-weight: 300; }
 
 .btn {
+  margin-top: 30px;
   display: inline-block;
-  margin-top: 20px;
-  padding: 12px 20px;
-  background: white;
-  color: #0176d3;
+  padding: 14px 28px;
+  border-radius: 30px;
+  background: #0b5cab;
+  color: white;
   text-decoration: none;
-  border-radius: 5px;
   font-weight: bold;
+  box-shadow: 0 0 25px rgba(77,184,255,0.6);
 }
 
+/* SALESFORCE LOGO */
+.sf-logo {
+  width: 150px;
+  margin-top: 30px;
+  animation: floatLogo 4s ease-in-out infinite, glowPulse 3s infinite;
+  filter: drop-shadow(0 0 35px rgba(77,184,255,1));
+}
+
+/* SECTIONS */
 section {
-  padding: 40px;
-  max-width: 1000px;
+  padding: 80px 20px;
+  max-width: 1100px;
   margin: auto;
 }
 
 h2 {
   text-align: center;
-  color: #0176d3;
+  color: #4db8ff;
+  text-shadow: 0 0 15px rgba(77,184,255,0.8);
 }
 
-.card {
-  background: white;
-  padding: 20px;
-  margin: 15px 0;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+/* 3D CARDS */
+.parallax-card {
+  background: rgba(10,15,40,0.9);
+  border-radius: 18px;
+  padding: 25px;
+  margin: 25px 0;
+  box-shadow: 0 0 30px rgba(77,184,255,0.35);
+  transition: transform 0.2s ease;
 }
 
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 20px;
-  background: #e5e5e5;
+  padding: 30px;
+  background: #050814;
+  color: #8fbfff;
+}
+
+/* ANIMATIONS */
+@keyframes floatLogo {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 20px rgba(77,184,255,0.6)); }
+  50% { filter: drop-shadow(0 0 45px rgba(77,184,255,1)); }
+  100% { filter: drop-shadow(0 0 20px rgba(77,184,255,0.6)); }
 }
